@@ -31,7 +31,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.(html|png)$/,
+        test: /\.(html|png|jpg|gif|jpeg|svg)$/,
         loader: 'file',
         query: {
           name: '[name].[ext]'

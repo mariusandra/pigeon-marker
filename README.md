@@ -6,4 +6,4 @@ Demo: https://mariusandra.github.io/pigeon-marker/
 
 Example: https://github.com/mariusandra/pigeon-marker/blob/master/demo/demo.js
 
-API: https://github.com/mariusandra/pigeon-marker/blob/master/src/index.js#L13
+API: https://github.com/mariusandra/pigeon-marker/blob/master/src/index.js
