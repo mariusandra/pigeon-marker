@@ -4,8 +4,8 @@
 
 Marker component for pigeon-maps.
 
-API:
+API: https://github.com/mariusandra/pigeon-marker/blob/master/src/index.js#L13
 
-Sample code:
+Sample code: https://github.com/mariusandra/pigeon-marker/blob/master/demo/demo.js
 
 Demo: https://mariusandra.github.io/pigeon-marker/
