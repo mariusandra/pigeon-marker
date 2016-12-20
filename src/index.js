@@ -12,11 +12,11 @@ const imageOffset = {
 
 export default class Marker extends Component {
   static propTypes = {
-    // input
-    position: PropTypes.array.isRequired,
-    payload: PropTypes.any, // passed to events
+    // input, passed to events
+    anchor: PropTypes.array.isRequired,
+    payload: PropTypes.any,
 
-    // modifiers
+    // optional modifiers
     hover: PropTypes.bool,
 
     // callbacks
@@ -41,6 +41,13 @@ export default class Marker extends Component {
       hover: false
     }
   }
+
+  // what do you expect to get back with the event
+  eventParameters = (event) => ({
+    event,
+    anchor: this.props.anchor,
+    payload: this.props.payload
+  })
 
   // controls
   isRetina () {
@@ -72,12 +79,6 @@ export default class Marker extends Component {
   }
 
   // delegators
-
-  eventParameters = (event) => ({
-    event,
-    payload: this.props.payload,
-    position: this.props.position
-  })
 
   handleClick = (event) => {
     this.props.onClick && this.props.onClick(this.eventParameters())

@@ -13,8 +13,8 @@ export default class Demo extends Component {
     }
   }
 
-  handleMarkerClick = ({ event, payload, position }) => {
-    console.log(`Marker #${payload} clicked at: `, position)
+  handleMarkerClick = ({ event, payload, anchor }) => {
+    console.log(`Marker #${payload} clicked at: `, anchor)
   }
 
   render () {
@@ -26,8 +26,8 @@ export default class Demo extends Component {
              zoom={zoom}
              width={600}
              height={400}>
-          <Marker position={[50.879, 4.6997]} payload={1} onClick={this.handleMarkerClick} />
-          <Marker position={[50.874, 4.6947]} payload={2} onClick={this.handleMarkerClick} />
+          <Marker anchor={[50.879, 4.6997]} payload={1} onClick={this.handleMarkerClick} />
+          <Marker anchor={[50.874, 4.6947]} payload={2} onClick={this.handleMarkerClick} />
         </Map>
       </div>
     )
