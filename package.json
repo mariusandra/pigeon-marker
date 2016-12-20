@@ -16,9 +16,10 @@
   "homepage": "https://github.com/mariusandra/pigeon-marker#readme",
   "scripts": {
     "start": "./node_modules/.bin/webpack-dev-server --history-api-fallback --hot --host 0.0.0.0 --port 4040 --display-modules",
-    "build": "npm run build:demo && npm run build:lib",
+    "build": "npm run build:demo && npm run build:lib && npm run build:lib_images",
     "build:demo": "node build.js production",
     "build:lib": "./node_modules/.bin/babel src --out-dir lib",
+    "build:lib_images": "cp -a ./src/img ./lib/",
     "watch": "./node_modules/.bin/babel -w src --out-dir lib",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -5,5 +5,7 @@
 Marker component for pigeon-maps.
 
 API:
+
 Sample code:
+
 Demo: https://mariusandra.github.io/pigeon-marker/
