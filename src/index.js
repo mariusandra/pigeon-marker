@@ -103,8 +103,14 @@ export default class Marker extends Component {
   render () {
     const { left, top, onClick } = this.props
 
+    const style = {
+      position: 'absolute',
+      transform: `translate(${left - imageOffset.left}px, ${top - imageOffset.top}px)`,
+      cursor: onClick ? 'pointer' : 'default'
+    }
+
     return (
-      <div style={{ position: 'absolute', left: left - imageOffset.left, top: top - imageOffset.top, cursor: onClick ? 'pointer' : 'default' }}
+      <div style={style}
            className='pigeon-click-block'
            onClick={this.handleClick}
            onContextMenu={this.handleContextMenu}
