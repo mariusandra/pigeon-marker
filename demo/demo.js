@@ -21,7 +21,7 @@ export default class Demo extends Component {
     const { center, zoom } = this.state
 
     return (
-      <div>
+      <div style={{textAlign: 'center', marginTop: 50}}>
         <Map center={center}
              zoom={zoom}
              width={600}
