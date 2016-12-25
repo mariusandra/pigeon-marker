@@ -4,7 +4,7 @@
   "description": "Marker component for pigeon-maps",
   "author": "Marius Andra",
   "license": "MIT",
-  "main": "lib/index.js",
+  "main": "lib/react/index.js",
   "jsnext:main": "src/index.js",
   "repository": {
     "type": "git",
