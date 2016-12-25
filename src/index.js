@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import { React, Inferno, Component, PropTypes } from './infact'
 
 import pin from './img/pin.png'
 import pinRetina from './img/pin@2x.png'
@@ -11,7 +11,7 @@ const imageOffset = {
 }
 
 export default class Marker extends Component {
-  static propTypes = {
+  static propTypes = process.env.BABEL_ENV === 'inferno' ? {} : {
     // input, passed to events
     anchor: PropTypes.array.isRequired,
     payload: PropTypes.any,

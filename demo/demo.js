@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { React, Inferno, Component } from '../src/infact'
 
 import Map from 'pigeon-maps'
 import Marker from 'pigeon-marker'

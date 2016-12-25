@@ -1,5 +1,4 @@
-import ReactDOM from 'react-dom'
-import React from 'react'
+import { React, ReactDOM, Inferno } from '../src/infact'
 
 import Demo from './demo'
 
