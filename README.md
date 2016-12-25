@@ -8,7 +8,7 @@ Example: https://github.com/mariusandra/pigeon-marker/blob/master/demo/demo.js
 
 API: https://github.com/mariusandra/pigeon-marker/blob/master/src/index.js
 
-To use in your component:
+To use in your component (with beta version 0.3.0):
 
 ```js
 // default for React
