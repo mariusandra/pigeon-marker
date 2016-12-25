@@ -2,6 +2,8 @@ const webpack = require('webpack')
 const path = require('path')
 
 const nodeEnv = process.env.NODE_ENV || 'development'
+const babelEnv = process.env.BABEL_ENV || 'react'
+
 const isProd = nodeEnv === 'production'
 
 const config = require('./_pigeon_config')
@@ -57,7 +59,10 @@ module.exports = {
   plugins: [
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
     new webpack.DefinePlugin({
-      'process.env': { NODE_ENV: JSON.stringify(nodeEnv) }
+      'process.env': {
+        NODE_ENV: JSON.stringify(nodeEnv),
+        BABEL_ENV: JSON.stringify(babelEnv)
+      }
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {

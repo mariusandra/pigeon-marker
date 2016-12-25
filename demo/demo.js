@@ -1,6 +1,6 @@
 import { React, Inferno, Component } from '../src/infact'
 
-import Map from 'pigeon-maps'
+import Map from 'pigeon-maps/infact'
 import Marker from 'pigeon-marker'
 
 export default class Demo extends Component {
