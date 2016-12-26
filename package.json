@@ -29,8 +29,7 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "pigeon-maps": "*",
-    "react": "*"
+    "pigeon-maps": "*"
   },
   "devDependencies": {
     "babel-cli": "6.18.0",
