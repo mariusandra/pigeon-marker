@@ -25,7 +25,7 @@ module.exports = {
     ]
   },
   output: {
-    path: path.join(__dirname, './docs'),
+    path: path.join(__dirname, './docs' + (babelEnv === 'inferno' ? '/inferno' : '')),
     publicPath: '',
     chunkFilename: '[name].bundle.js',
     filename: '[name].bundle.js'
