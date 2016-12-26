@@ -2,7 +2,9 @@
 
 [![npm version](https://img.shields.io/npm/v/pigeon-marker.svg)](https://www.npmjs.com/package/pigeon-marker)
 
-Demo: https://mariusandra.github.io/pigeon-marker/
+React demo: https://mariusandra.github.io/pigeon-marker/
+
+Inferno demo: https://mariusandra.github.io/pigeon-marker/inferno/
 
 Example: https://github.com/mariusandra/pigeon-marker/blob/master/demo/demo.js
 
