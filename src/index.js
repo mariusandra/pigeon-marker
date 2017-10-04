@@ -1,4 +1,5 @@
-import { React, Inferno, Component, PropTypes } from './infact'
+import { React, Inferno, Component } from './infact'
+import PropTypes from 'prop-types'
 
 import pin from './img/pin.png'
 import pinRetina from './img/pin@2x.png'
