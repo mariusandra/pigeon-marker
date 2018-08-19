@@ -82,20 +82,20 @@ export default class Marker extends Component {
   // delegators
 
   handleClick = (event) => {
-    this.props.onClick && this.props.onClick(this.eventParameters())
+    this.props.onClick && this.props.onClick(this.eventParameters(event))
   }
 
   handleContextMenu = (event) => {
-    this.props.onContextMenu && this.props.onContextMenu(this.eventParameters())
+    this.props.onContextMenu && this.props.onContextMenu(this.eventParameters(event))
   }
 
   handleMouseOver = (event) => {
-    this.props.onMouseOver && this.props.onMouseOver(this.eventParameters())
+    this.props.onMouseOver && this.props.onMouseOver(this.eventParameters(event))
     this.setState({ hover: true })
   }
 
   handleMouseOut = (event) => {
-    this.props.onMouseOut && this.props.onMouseOut(this.eventParameters())
+    this.props.onMouseOut && this.props.onMouseOut(this.eventParameters(event))
     this.setState({ hover: false })
   }
 
