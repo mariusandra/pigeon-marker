@@ -1,10 +1,5 @@
-import { React, Inferno, Component } from './infact'
+import { React, Component } from './infact'
 import PropTypes from 'prop-types'
-
-import pin from './img/pin.png'
-import pinRetina from './img/pin@2x.png'
-import pinHover from './img/pin-hover.png'
-import pinHoverRetina from './img/pin-hover@2x.png'
 
 const imageOffset = {
   left: 15,
@@ -13,6 +8,11 @@ const imageOffset = {
 
 export default class Marker extends Component {
   static propTypes = process.env.BABEL_ENV === 'inferno' ? {} : {
+    // marker
+    markerSize: PropTypes.number,
+    markerColor: PropTypes.string,
+    markerColorHover: PropTypes.string,
+
     // input, passed to events
     anchor: PropTypes.array.isRequired,
     payload: PropTypes.any,
@@ -34,6 +34,11 @@ export default class Marker extends Component {
     latLngToPixel: PropTypes.func,
     pixelToLatLng: PropTypes.func
   }
+  static defaultProps = {
+    markerSize: '30',
+    markerColor: '#59adcd',
+    markerColorHover: '#8cb8c8'
+  };
 
   constructor (props) {
     super(props)
@@ -60,25 +65,6 @@ export default class Marker extends Component {
     return typeof this.props.hover === 'boolean' ? this.props.hover : this.state.hover
   }
 
-  image () {
-    return this.isRetina() ? (this.isHover() ? pinHoverRetina : pinRetina) : (this.isHover() ? pinHover : pin)
-  }
-
-  // lifecycle
-
-  componentDidMount () {
-    let images = this.isRetina() ? [
-      pinRetina, pinHoverRetina
-    ] : [
-      pin, pinHover
-    ]
-
-    images.forEach(image => {
-      let img = new window.Image()
-      img.src = image
-    })
-  }
-
   // delegators
 
   handleClick = (event) => {
@@ -102,7 +88,9 @@ export default class Marker extends Component {
   // render
 
   render () {
-    const { left, top, onClick } = this.props
+    const { left, top, onClick, markerColor, markerColorHover, markerSize } = this.props
+    const { hover } = this.state
+    const svgSize = {width: markerSize, height: markerSize}
 
     const style = {
       position: 'absolute',
@@ -110,14 +98,25 @@ export default class Marker extends Component {
       cursor: onClick ? 'pointer' : 'default'
     }
 
+    if (this.isRetina()) {
+      svgSize.width = markerSize * 2
+      svgSize.height = markerSize * 2
+    }
+
     return (
       <div style={style}
-           className='pigeon-click-block'
-           onClick={this.handleClick}
-           onContextMenu={this.handleContextMenu}
-           onMouseOver={this.handleMouseOver}
-           onMouseOut={this.handleMouseOut}>
-        <img src={this.image()} width={29} height={34} alt='' />
+        className='pigeon-click-block'
+        onClick={this.handleClick}
+        onContextMenu={this.handleContextMenu}
+        onMouseOver={this.handleMouseOver}
+        onMouseOut={this.handleMouseOut}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          style={{width: `${markerSize}px`, height: `${markerSize}px`}}
+          viewBox="0 0 24 24">
+          <path fill={hover ? markerColor : markerColorHover}
+            d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" />
+        </svg>
       </div>
     )
   }
