@@ -12,6 +12,7 @@ export default class Marker extends Component {
     markerSize: PropTypes.number,
     markerColor: PropTypes.string,
     markerColorHover: PropTypes.string,
+    markerShadowColor: PropTypes.string,
 
     // input, passed to events
     anchor: PropTypes.array.isRequired,
@@ -37,7 +38,8 @@ export default class Marker extends Component {
   static defaultProps = {
     markerSize: 30,
     markerColor: '#59adcd',
-    markerColorHover: '#8cb8c8'
+    markerColorHover: '#8cb8c8',
+    markerShadowColor: '#fafafa'
   };
 
   constructor (props) {
@@ -88,7 +90,7 @@ export default class Marker extends Component {
   // render
 
   render () {
-    const { left, top, onClick, markerColor, markerColorHover, markerSize } = this.props
+    const { left, top, onClick, markerColor, markerColorHover, markerSize. markerShadowColor } = this.props
     const { hover } = this.state
     let svgSize = markerSize
 
@@ -113,7 +115,13 @@ export default class Marker extends Component {
           xmlns="http://www.w3.org/2000/svg"
           style={{width: `${svgSize}px`, height: `${svgSize}px`}}
           viewBox="0 0 24 24">
-          <path fill={hover ? markerColor : markerColorHover}
+          <filter id="shadow">
+            <feDropShadow dx="0" dy="0" stdDeviation="0.9" 
+                flood-color=markerShaddowColor/>
+          </filter>
+          <path 
+            fill={hover ? markerColor : markerColorHover}
+            style="filter: url(#shadow)"
             d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" />
         </svg>
       </div>
