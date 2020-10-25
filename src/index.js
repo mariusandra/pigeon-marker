@@ -35,7 +35,7 @@ export default class Marker extends Component {
     pixelToLatLng: PropTypes.func
   }
   static defaultProps = {
-    markerSize: '30',
+    markerSize: 30,
     markerColor: '#59adcd',
     markerColorHover: '#8cb8c8'
   };
